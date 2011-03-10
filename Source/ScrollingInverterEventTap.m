@@ -88,13 +88,17 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
         }
         
         case kCGEventTapDisabledByTimeout: {
-            NSLog(@"Got kCGEventTapDisabledByTimeout in %s", __func__);
+#if DEBUG            
+            NSLog(@"Got kCGEventTapDisabledByTimeout in %s; re-enabling.", __func__);
+#endif            
             CGEventTapEnable(_eventTapMachPort, YES);
             break;
         }
 
         case kCGEventTapDisabledByUserInput: {
-            NSLog(@"Got kCGEventTapDisabledByUserInput in %s", __func__);
+#if DEBUG            
+            NSLog(@"Got kCGEventTapDisabledByUserInput in %s; re-enabling.", __func__);
+#endif            
             CGEventTapEnable(_eventTapMachPort, YES);
             break;
         }
