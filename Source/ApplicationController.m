@@ -8,6 +8,8 @@
 #import "ApplicationController.h"
 #import "ScrollingInverterEventTap.h"
 
+static NSString *const kScrollveticaShowStatusItemKey = @"ScrollveticaShowStatusItemKey";
+
 @interface ApplicationController ()
 
 - (BOOL)hasLoginItemWithPath:(NSString *)path;
@@ -27,6 +29,9 @@
         return nil;
 
     _eventTap = [[ScrollingInverterEventTap alloc] init];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:
+        [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:kScrollveticaShowStatusItemKey]
+     ];
     
     return self;
 }
@@ -48,17 +53,15 @@
 }
 
 @synthesize statusItemMenu = _statusItemMenu;
+@synthesize showStatusItem;
 
 - (void)awakeFromNib;
 {
     NSAssert(!_statusItem, @"");
     NSAssert(_statusItemMenu, @"");
     
-    _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:32] retain];
-    [_statusItem setImage:[NSImage imageNamed:@"StatusMenuIcon"]];
-    [_statusItem setAlternateImage:[NSImage imageNamed:@"StatusMenuIcon-Highlighted"]];
-    [_statusItem setHighlightMode:YES];
-    [_statusItem setMenu:_statusItemMenu];
+    BOOL shouldShowStatusItem = [[NSUserDefaults standardUserDefaults] boolForKey:kScrollveticaShowStatusItemKey];
+    self.showStatusItem = shouldShowStatusItem;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
@@ -119,6 +122,31 @@
 {
     BOOL enabled = ![_eventTap isEnabled];
     [_eventTap setEnabled:enabled];
+}
+
+- (void)setShowStatusItem:(BOOL)shouldShow
+{
+    if (showStatusItem != shouldShow) {
+        showStatusItem = shouldShow;
+        [[NSUserDefaults standardUserDefaults] setBool:shouldShow forKey:kScrollveticaShowStatusItemKey];
+        if (shouldShow) {
+            _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:32] retain];
+            [_statusItem setImage:[NSImage imageNamed:@"StatusMenuIcon"]];
+            [_statusItem setAlternateImage:[NSImage imageNamed:@"StatusMenuIcon-Highlighted"]];
+            [_statusItem setHighlightMode:YES];
+            [_statusItem setMenu:_statusItemMenu];
+        }
+        else {
+            [_statusItem release];
+            _statusItem = nil;
+        }
+    }
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
+{
+    self.showStatusItem = YES;
+    return YES;
 }
 
 #pragma mark -

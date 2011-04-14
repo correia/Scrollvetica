@@ -17,6 +17,7 @@
     LSSharedFileListRef _loginItemsFileList;
 }
 
+@property (nonatomic) BOOL showStatusItem;
 @property (nonatomic, retain) IBOutlet NSMenu *statusItemMenu;
 
 - (IBAction)statusItemShowAboutBox:(id)sender;
