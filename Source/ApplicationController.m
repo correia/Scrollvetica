@@ -54,7 +54,12 @@
     NSAssert(!_statusItem, @"");
     NSAssert(_statusItemMenu, @"");
     
-    _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:32] retain];
+#if !DEBUG    
+    // -toggleInvertScrollEvents: is really only useful in debug builds
+    NSInteger itemIndex = [_statusItemMenu indexOfItemWithTarget:self andAction:@selector(toggleInvertScrollEvents:)];
+    [_statusItemMenu removeItemAtIndex:itemIndex];
+#endif
+
     [_statusItem setImage:[NSImage imageNamed:@"StatusMenuIcon"]];
     [_statusItem setAlternateImage:[NSImage imageNamed:@"StatusMenuIcon-Highlighted"]];
     [_statusItem setHighlightMode:YES];
