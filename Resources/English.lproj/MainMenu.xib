@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">1305</string>
@@ -404,6 +404,14 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
+					<object class="NSMenuItem" id="445270881">
+						<reference key="NSMenu" ref="1002232010"/>
+						<string key="NSTitle">   Show in Menu Bar</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
 					<object class="NSMenuItem" id="815981090">
 						<reference key="NSMenu" ref="1002232010"/>
 						<string key="NSTitle">Invert Scroll Events</string>
@@ -635,6 +643,14 @@
 						<reference key="destination" ref="674213147"/>
 					</object>
 					<int key="connectionID">576</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleShowsStatusItem:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="445270881"/>
+					</object>
+					<int key="connectionID">592</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -933,6 +949,7 @@
 							<reference ref="401588875"/>
 							<reference ref="629501322"/>
 							<reference ref="815981090"/>
+							<reference ref="445270881"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Status Menu</string>
@@ -965,6 +982,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">568</int>
 						<reference key="object" ref="815981090"/>
+						<reference key="parent" ref="1002232010"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">588</int>
+						<reference key="object" ref="445270881"/>
 						<reference key="parent" ref="1002232010"/>
 					</object>
 				</object>
@@ -1055,6 +1077,7 @@
 					<string>57.editorWindowContentRectSynchronizationRect</string>
 					<string>58.IBPluginDependency</string>
 					<string>58.ImportedFromIB2</string>
+					<string>588.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1140,6 +1163,7 @@
 					<string>{{23, 794}, {245, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1154,7 +1178,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">587</int>
+			<int key="maxID">592</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1169,9 +1193,11 @@
 							<string>statusItemShowAboutBox:</string>
 							<string>toggleInvertScrollEvents:</string>
 							<string>toggleLaunchAutomaticallyAtLogIn:</string>
+							<string>toggleShowsStatusItem:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1184,6 +1210,7 @@
 							<string>statusItemShowAboutBox:</string>
 							<string>toggleInvertScrollEvents:</string>
 							<string>toggleLaunchAutomaticallyAtLogIn:</string>
+							<string>toggleShowsStatusItem:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1197,6 +1224,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">toggleLaunchAutomaticallyAtLogIn:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">toggleShowsStatusItem:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

@@ -37,6 +37,7 @@
 		5F7630A7132730AF00FB0E42 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5F7630AA13273E5100FB0E42 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		5F7630AB13273E5100FB0E42 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5F80CA9F1359396300F94EB2 /* RELEASE_NOTES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = RELEASE_NOTES.txt; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Scrollvetica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrollvetica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +95,7 @@
 			children = (
 				5F7630AA13273E5100FB0E42 /* LICENSE.txt */,
 				5F7630AB13273E5100FB0E42 /* README.txt */,
+				5F80CA9F1359396300F94EB2 /* RELEASE_NOTES.txt */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,

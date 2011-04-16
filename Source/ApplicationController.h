@@ -14,6 +14,8 @@
     ScrollingInverterEventTap *_eventTap;
     NSStatusItem *_statusItem;
     NSMenu *_statusItemMenu;
+    BOOL _wasLaunchedAtLogin;
+    BOOL _showsStatusItem;
     LSSharedFileListRef _loginItemsFileList;
 }
 
@@ -22,5 +24,6 @@
 - (IBAction)statusItemShowAboutBox:(id)sender;
 - (IBAction)toggleLaunchAutomaticallyAtLogIn:(id)sender;
 - (IBAction)toggleInvertScrollEvents:(id)sender;
+- (IBAction)toggleShowsStatusItem:(id)sender;
 
 @end
