@@ -1,3 +1,8 @@
+Scrollvetica 1.0 (v10)
+----------------------
+
+- Enabled 32-bit Intel builds.
+
 Scrollvetica 1.0 (v9)
 ---------------------
 
