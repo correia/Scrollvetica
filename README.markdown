@@ -45,7 +45,13 @@ I have no plans to "fix" this class of "bug".
 Installation
 ------------
 
-Click on the "Download" button above and then on "Scrollvetica_X.X_vXX.zip", extract that and double click on the ".app" file to launch.
+Click on the “Downloads” button above on the Scrollvetica project page
+
+	https://github.com/correia/Scrollvetica
+
+and download the latest release named “Scrollvetica_1.0_vXX.zip”. Extract
+the archive (Safari will do this automatically.) Copy Scrollvetica to your
+Applications folder, and launch it.
 
 
 --
