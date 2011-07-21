@@ -46,5 +46,11 @@ Known examples of things which work incorrectly now:
 I have no plans to "fix" this class of "bug".
 
 
+Installation
+------------
+
+Click on the "Download" button above and then on "Scrollvetica_X.X_vXX.zip", extract that and double click on the ".app" file to launch.
+
+
 --
 [*] Not really.
