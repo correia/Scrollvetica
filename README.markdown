@@ -1,8 +1,4 @@
 Scrollvetica 1.0
-Scrollvetica 1.0
-Scrollvetica 1.0
-Scrollvetica 1.0
-Scrollvetica 1.0
 ================
 
 https://github.com/correia/Scrollvetica
