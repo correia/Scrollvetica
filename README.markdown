@@ -24,8 +24,8 @@ applications I use daily.
 Features
 --------
 
-+ Inverts all scroll events in both the horizontal and vertical directions.
-+ Helvetica(*)
+- Inverts all scroll events in both the horizontal and vertical directions.
+- Helvetica(*)
 
 Known Issues
 ------------
@@ -35,24 +35,23 @@ used for things other than scrolling will now likely be backwards.
 
 Known examples of things which work incorrectly now:
 
-	The volume slider in iTunes
-	The volume slider in the volume menu extra
-	Using scroll events to move the selection in the application switcher
+- The volume slider in iTunes
+- The volume slider in the volume menu extra
+- Using scroll events to move the selection in the application switcher
 	
 I have no plans to "fix" this class of "bug".
-
 
 Installation
 ------------
 
 Click on the “Downloads” button above on the Scrollvetica project page
 
-	https://github.com/correia/Scrollvetica
+    https://github.com/correia/Scrollvetica
 
-and download the latest release named “Scrollvetica_1.0_vXX.zip”. Extract
+and download the latest release named “`Scrollvetica_1.0_vXX.zip`”. Extract
 the archive (Safari will do this automatically.) Copy Scrollvetica to your
 Applications folder, and launch it.
 
 
---
+---
 [*] Not really.
