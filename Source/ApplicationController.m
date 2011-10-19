@@ -128,6 +128,7 @@ static NSString *const ShowStatusItemKey = @"ShowStatusItem";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 {
+#if !DEBUG // Allow building+debugging on Lion
     SInt32 response = 0;
     OSStatus status = Gestalt(gestaltSystemVersion, &response);
     if (status == noErr && response >= 0x1070) {
@@ -141,7 +142,8 @@ static NSString *const ShowStatusItemKey = @"ShowStatusItem";
         [alert runModal];
         [[NSApplication sharedApplication] terminate:nil];
     }
-
+#endif
+    
     BOOL shouldShowStatusItem = (self.wasLaunchedAtLogin ? [[NSUserDefaults standardUserDefaults] boolForKey:ShowStatusItemKey] : YES);
     [self setShowsStatusItem:shouldShowStatusItem updateUserDefaults:NO];
 }
