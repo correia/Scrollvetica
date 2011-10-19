@@ -13,6 +13,9 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 
 - (CGEventRef)_eventTapCallbackWithProxy:(CGEventTapProxy)proxy type:(CGEventType)type event:(CGEventRef)event;
 
+- (void)_workspaceSessionDidBecomeActive:(NSNotification *)notification;
+- (void)_workspaceSessionDidResignActive:(NSNotification *)notification;
+
 @end
 
 @implementation ScrollingInverterEventTap
@@ -24,9 +27,14 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
         return nil;
         
     _enabled = YES;
+    _sessionActive = YES;
     _eventTapMachPort = CGEventTapCreate(kCGHIDEventTap, kCGHeadInsertEventTap, kCGEventTapOptionDefault, CGEventMaskBit(kCGEventScrollWheel), _eventTap, self);
     _eventTapRunLoopSource = CFMachPortCreateRunLoopSource(NULL, _eventTapMachPort, 0);
     CFRunLoopAddSource(CFRunLoopGetCurrent(), _eventTapRunLoopSource, kCFRunLoopCommonModes);
+    
+    NSNotificationCenter *notificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+    [notificationCenter addObserver:self selector:@selector(_workspaceSessionDidBecomeActive:) name:NSWorkspaceSessionDidBecomeActiveNotification object:nil];
+    [notificationCenter addObserver:self selector:@selector(_workspaceSessionDidResignActive:) name:NSWorkspaceSessionDidResignActiveNotification object:nil];
 
     return self;
 }
@@ -39,6 +47,9 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 
 - (void)invalidate;
 {
+    NSNotificationCenter *notificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+    [notificationCenter removeObserver:self];
+    
     if (_eventTapMachPort) {
         CFMachPortInvalidate(_eventTapMachPort);
         CFRelease(_eventTapMachPort);
@@ -53,6 +64,7 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 }
 
 @synthesize enabled = _enabled;
+@synthesize sessionActive = _sessionActive;
 
 #pragma mark -
 #pragma mark Private
@@ -67,7 +79,7 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
 {
     switch (type) {
         case kCGEventScrollWheel: {
-            if ([self isEnabled]) {
+            if ([self isEnabled] && [self isSessionActive]) {
                 int64_t deltaAxis1 = CGEventGetIntegerValueField(event, kCGScrollWheelEventDeltaAxis1);;
                 int64_t deltaAxis2 = CGEventGetIntegerValueField(event, kCGScrollWheelEventDeltaAxis2);;
                 double fixedPtDeltaAxis1 = CGEventGetDoubleValueField(event, kCGScrollWheelEventFixedPtDeltaAxis1);
@@ -107,4 +119,16 @@ static CGEventRef _eventTap(CGEventTapProxy proxy, CGEventType type, CGEventRef 
     return event;
 }
 
+- (void)_workspaceSessionDidBecomeActive:(NSNotification *)notification;
+{
+    _sessionActive = YES;
+}
+
+- (void)_workspaceSessionDidResignActive:(NSNotification *)notification;
+{
+    _sessionActive = NO;
+}
+
 @end
+
+

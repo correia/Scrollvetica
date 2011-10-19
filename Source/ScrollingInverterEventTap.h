@@ -10,6 +10,7 @@
 @interface ScrollingInverterEventTap : NSObject {
   @private
     BOOL _enabled;
+    BOOL _sessionActive;
     CFMachPortRef _eventTapMachPort;
     CFRunLoopSourceRef _eventTapRunLoopSource;
 }
@@ -19,5 +20,6 @@
 - (void)invalidate;
 
 @property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic, readonly, getter=isSessionActive) BOOL sessionActive;
 
 @end
