@@ -1,3 +1,10 @@
+Scrollvetica 1.0 (v11)
+----------------------
+
+- Scrollvetica only inverts scroll events for the active user session. This
+  makes it possible to use Scrollvetica and Fast User Switching without
+  having one login session affect another.
+  
 Scrollvetica 1.0 (v10)
 ----------------------
 
