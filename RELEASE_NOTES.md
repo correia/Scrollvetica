@@ -29,7 +29,6 @@ Scrollvetica 1.0 (v8)
 
 - New icons based on contributions from anonymous.
 
-
 Scrollvetica 1.0 (v7)
 ---------------------
 
