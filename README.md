@@ -61,7 +61,7 @@ Automatically at Log In”.
 Click on the Scrollvetica item in the menu bar and select “Quit
 Scrollvetica”.
   
-Drag the Scrollvetica icon to the Trash.
+Drag the Scrollvetica application to the Trash.
 
 ---
 [*] Not really.
