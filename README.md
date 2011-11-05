@@ -52,6 +52,16 @@ and download the latest release named “`Scrollvetica_1.0_vXX.zip`”. Extract
 the archive (Safari will do this automatically.) Copy Scrollvetica to your
 Applications folder, and launch it.
 
+Uninstall
+---------
+
+Click on the Scrollvetica item in the menu bar and deselect “Launch
+Automatically at Log In”.
+
+Click on the Scrollvetica item in the menu bar and select “Quit
+Scrollvetica”.
+  
+Drag the Scrollvetica icon to the Trash.
 
 ---
 [*] Not really.
