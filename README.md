@@ -44,13 +44,11 @@ I have no plans to "fix" this class of "bug".
 Installation
 ------------
 
-Click on the “Downloads” button above on the Scrollvetica project page
+The latest binary release can be download from the “Releases” page:
 
-    https://github.com/correia/Scrollvetica
+    https://github.com/correia/Scrollvetica/releases
 
-and download the latest release named “`Scrollvetica_1.0_vXX.zip`”. Extract
-the archive (Safari will do this automatically.) Copy Scrollvetica to your
-Applications folder, and launch it.
+After downloading the latest reease, extract the archive (Safari will do this automatically.) Copy Scrollvetica to your Applications folder, and launch it.
 
 Uninstall
 ---------
